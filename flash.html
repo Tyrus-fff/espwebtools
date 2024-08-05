@@ -1,36 +1,61 @@
-<!DOCTYPE html>
-<html>
-
-
-<body>
-    <h1>Sample project for demoing ESP Web Tools</h1>
-
-    <div id="main" style="display: none;">
-
-        <br>
-        <script
-            type="module"
-            src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module">
-        </script>
-        <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
-        <br>
-        <span>NOTE: Make sure to close anything using your devices com port (e.g. Serial monitor)</span>
-    </div>
-    <div id="notSupported" style="display: none;">
-        Your browser does not support the Web Serial API. Try Chrome
-    </div>
-    
-
-    <script>
-        if(navigator.serial){
-            document.getElementById("notSupported").style.display = 'none';
-            document.getElementById("main").style.display = 'block';
-        } else {
-            document.getElementById("notSupported").style.display = 'block';
-            document.getElementById("main").style.display = 'none';
-        }
-    </script>
-
-</body>
-
+<!DOCTYPE html>  
+<html lang="zh">  
+  
+<head>  
+    <meta charset="UTF-8">  
+    <title>ESP32 程序刷写高级演示界面</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 20px;  
+            padding: 0;  
+            background-color: #f4f4f4;  
+        }  
+        h1 {  
+            color: #333;  
+            text-align: center;  
+        }  
+        #main, #notSupported {  
+            margin: 20px auto;  
+            width: 80%;  
+            padding: 20px;  
+            border: 1px solid #ddd;  
+            border-radius: 5px;  
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);  
+            text-align: center;  
+        }  
+        #notSupported {  
+            background-color: #ffebee;  
+            color: #d32f2f;  
+        }  
+    </style>  
+</head>  
+  
+<body>  
+    <h1>精石控制盒配套指纹程序V1.0</h1>  
+  
+    <div id="main" style="display: none;">  
+        <br>  
+        <script type="module" src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module"></script>  
+        <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>  
+        <br>  
+        <span>注意：请确保关闭所有正在使用设备串口的程序（例如串口监视器）</span>  
+    </div>  
+  
+    <div id="notSupported" style="display: none;">  
+        您的浏览器不支持Web Serial API。请使用Chrome浏览器。  
+    </div>  
+  
+    <script>  
+        if (navigator.serial) {  
+            document.getElementById("notSupported").style.display = 'none';  
+            document.getElementById("main").style.display = 'block';  
+        } else {  
+            document.getElementById("notSupported").style.display = 'block';  
+            document.getElementById("main").style.display = 'none';  
+        }  
+    </script>  
+  
+</body>  
+  
 </html>
